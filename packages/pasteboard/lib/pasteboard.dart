@@ -43,6 +43,21 @@ class Pasteboard {
     return data.text;
   }
 
+  ///set text to system pasteboard
+  static Future<void> setText(String text) async {
+    return await RichClipboard.setData(
+        RichClipboardData(text: text, html: null));
+  }
+
+  ///set html to system pasteboard
+  static Future<void> setHtml(String plainText, String htmlText) async {
+    final data = RichClipboardData(
+      text: plainText.isEmpty ? null : plainText,
+      html: htmlText.isEmpty ? null : htmlText,
+    );
+    return await RichClipboard.setData(data);
+  }
+
   /// only available on iOS
   ///
   /// set image data to system pasteboard.

@@ -57,6 +57,18 @@ class _MyAppState extends State<MyApp> {
               ),
               MaterialButton(
                 onPressed: () async {
+                  await Pasteboard.setText(textController.text);
+                },
+                child: const Text('copy text'),
+              ),
+              MaterialButton(
+                onPressed: () async {
+                  await Pasteboard.setHtml(textController.text);
+                },
+                child: const Text('copy html'),
+              ),
+              MaterialButton(
+                onPressed: () async {
                   final bytes = await Pasteboard.image;
 
                   setState(() {
@@ -100,6 +112,7 @@ class _MyAppState extends State<MyApp> {
                   }
                   setState(() {
                     _console = 'html: \n$html';
+                    textController.text = _console;
                   });
                 },
                 child: const Text("Get html"),
