@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  rich_clipboard: ^0.0.2
 
 dev_dependencies:
   flutter_test:

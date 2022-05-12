@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rich_clipboard/rich_clipboard.dart';
 
 class Pasteboard {
   static const MethodChannel _channel = MethodChannel('pasteboard');
@@ -26,15 +27,20 @@ class Pasteboard {
     return null;
   }
 
-  /// only available on Windows
-  /// Get "HTML format" from system pasteboard.
-  ///  HTML format: https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767917(v=vs.85)
+  /// get rich text by rich_clipboard
   ///
+  /// get html data from system pasteboard.
   static Future<String?> get html async {
-    if (Platform.isWindows) {
-      return await _channel.invokeMethod<Object>('html') as String?;
-    }
-    return null;
+    final data = await RichClipboard.getData();
+    return data.html;
+  }
+
+  /// get text by rich_clipborad
+  ///
+  /// get text data from system pasteboard.
+  static Future<String?> get text async {
+    final data = await RichClipboard.getData();
+    return data.text;
   }
 
   /// only available on iOS

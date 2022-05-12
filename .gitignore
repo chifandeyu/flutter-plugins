@@ -3,3 +3,10 @@
 cmake-build-*
 
 /.idea
+packages/pasteboard/example/linux/flutter/generated_plugin_registrant.cc
+packages/pasteboard/example/linux/flutter/generated_plugin_registrant.h
+packages/pasteboard/example/linux/flutter/generated_plugins.cmake
+packages/pasteboard/example/macos/Flutter/GeneratedPluginRegistrant.swift
+packages/pasteboard/example/windows/flutter/generated_plugin_registrant.cc
+packages/pasteboard/example/windows/flutter/generated_plugin_registrant.h
+packages/pasteboard/example/windows/flutter/generated_plugins.cmake

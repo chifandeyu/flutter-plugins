@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pasteboard/pasteboard.dart';
 
@@ -77,13 +78,45 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () async {
                   final files = await Pasteboard.files();
                   setState(() {
-                    _console = 'files: \n ${files.isEmpty ? 'empty' : ''}';
+                    _console = 'files: \n ${files.isEmpty ? 'empty\n' : ''}';
+                    if (files.isEmpty && kDebugMode) {
+                      // ignore: avoid_print
+                      print('no files');
+                    }
                     for (final file in files) {
                       _console += '$file ${File(file).existsSync()}\n';
                     }
                   });
                 },
                 child: const Text("Get files"),
+              ),
+              TextButton(
+                onPressed: () async {
+                  final html = await Pasteboard.html;
+                  if (html == null) {
+                    if (kDebugMode) {
+                      print('no html');
+                    }
+                  }
+                  setState(() {
+                    _console = 'html: \n$html';
+                  });
+                },
+                child: const Text("Get html"),
+              ),
+              TextButton(
+                onPressed: () async {
+                  final text = await Pasteboard.text;
+                  if (text == null) {
+                    if (kDebugMode) {
+                      print('no text');
+                    }
+                  }
+                  setState(() {
+                    _console = 'text: \n$text';
+                  });
+                },
+                child: const Text("Get text"),
               ),
               SelectableText(' $_console'),
               if (bytes != null) Image.memory(bytes!),
