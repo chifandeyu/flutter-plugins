@@ -10,3 +10,10 @@ packages/pasteboard/example/macos/Flutter/GeneratedPluginRegistrant.swift
 packages/pasteboard/example/windows/flutter/generated_plugin_registrant.cc
 packages/pasteboard/example/windows/flutter/generated_plugin_registrant.h
 packages/pasteboard/example/windows/flutter/generated_plugins.cmake
+packages/desktop_multi_window/example/linux/flutter/generated_plugin_registrant.cc
+packages/desktop_multi_window/example/linux/flutter/generated_plugin_registrant.h
+packages/desktop_multi_window/example/linux/flutter/generated_plugins.cmake
+packages/desktop_multi_window/example/macos/Flutter/GeneratedPluginRegistrant.swift
+packages/desktop_multi_window/example/windows/flutter/generated_plugin_registrant.cc
+packages/desktop_multi_window/example/windows/flutter/generated_plugin_registrant.h
+packages/desktop_multi_window/example/windows/flutter/generated_plugins.cmake
